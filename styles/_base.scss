@@ -1,0 +1,101 @@
+@use "./utilities/index" as dev;
+@use "./reset";
+@use "./shared/index";
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: dev.$vlg;
+    font-size: dev.rem(15);
+    padding: 10%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+
+    @include dev.breakpoint-min(Tablet-l) {
+        padding: 0 15%;
+        padding-top: 2rem;
+
+    }
+
+    @include dev.breakpoint-md(Tablet-l, Tablet) {
+        padding: 2rem 10%;
+    }
+
+
+    .head {
+        .head__h1 {
+            font-weight: 200;
+        }
+
+        .head__h2 {
+            font-weight: 600;
+            padding-bottom: dev.rem(14);
+        }
+
+        .head__para {
+            text-align: center;
+            max-width: 28rem;
+            margin: auto;
+            font-size: dev.rem(13);
+        }
+
+        padding-bottom: dev.rem(50);
+    }
+
+    .main,
+    .special {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: fit-content;
+        margin: auto;
+        align-items: center;
+
+        @include dev.breakpoint-min(Tablet-l) {
+            grid-template-columns: repeat(3, 1fr);
+
+            .special {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @include dev.breakpoint-md(Tablet-l, Tablet) {
+            grid-template-columns: 1fr 1fr;
+
+            .special {
+                grid-template-columns: 1fr;
+                grid-row: 1/ span 2;
+            }
+
+        }
+
+        .card--1 {
+            .card__h3 {
+                border-top: 3px solid dev.$cyan;
+            }
+
+        }
+
+
+        .card--2 {
+            .card__h3 {
+                border-top: 3px solid dev.$red;
+            }
+        }
+
+
+        .card--3 {
+            .card__h3 {
+                border-top: 3px solid dev.$orange;
+            }
+        }
+
+
+        .card--4 {
+            .card__h3 {
+                border-top: 3px solid dev.$blue;
+            }
+        }
+    }
+
+}
